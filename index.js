@@ -16,11 +16,12 @@ function err(message, data) {
 module.exports = async function (domain, opt = {}) {
   const net = dugg(opt.settings)
   const protocol = opt.protocol || 'https'
+  const uri = `${protocol}://${domain}`
 
   // Get URL
   let url
   try {
-    url = new URL(`${protocol}://${domain}`)
+    url = new URL(uri)
   } catch (e) {
     return err(e.message)
   }
@@ -61,7 +62,7 @@ module.exports = async function (domain, opt = {}) {
   if (opt.settings) {
     let urls
     try {
-      urls = await net.upload([file], { timestamps: true })
+      urls = await net.upload([file], { timestamp: true })
       return urls[0]
     } catch (e) {
       err(e.message)
