@@ -1,6 +1,6 @@
 {
   "name": "icofetch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Fetch favicon images from web sites",
   "main": "index.js",
   "scripts": {
