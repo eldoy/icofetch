@@ -30,7 +30,7 @@ module.exports = async function (domain, opt = {}) {
   try {
     page = await axios.get(url.origin)
   } catch (e) {
-    return err(e.message, e.response.data || {})
+    return err(e.message, e.response?.data)
   }
 
   // Extract favicon link
